@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: boot-k8s
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: boot-k8s
+  template:
+    metadata:
+      labels:
+        app: boot-k8s
+    spec:
+      containers:
+      - name: boot-k8s
+        image: boot-k8s:1.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9192
